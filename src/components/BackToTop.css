@@ -1,8 +1,8 @@
 .back-to-top {
   position: fixed;
-  bottom: 2rem;
-  right: 5.5rem;
-  z-index: 999;
+  bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+  right: calc(5rem + env(safe-area-inset-right, 0px));
+  z-index: 998;
   width: 44px;
   height: 44px;
   display: flex;
@@ -11,7 +11,7 @@
   background: var(--accent);
   color: #fff;
   border-radius: 50%;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
   box-shadow: 0 4px 20px var(--accent-glow);
   opacity: 0;
@@ -31,12 +31,24 @@
   box-shadow: 0 6px 30px var(--accent-glow);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) {
   .back-to-top {
-    bottom: 1.25rem;
-    right: 1.25rem;
+    bottom: 2rem;
+    right: 5.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-to-top {
     width: 40px;
     height: 40px;
     font-size: 1.1rem;
+    right: calc(4.5rem + env(safe-area-inset-right, 0px));
+  }
+}
+
+@media (max-width: 360px) {
+  .back-to-top {
+    right: calc(4.25rem + env(safe-area-inset-right, 0px));
   }
 }

@@ -1,21 +1,23 @@
 .footer {
   background: var(--bg-primary);
   border-top: 1px solid var(--border);
-  padding: 4rem 0 0;
+  padding: 3rem 0 0;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .footer__grid {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 2.5rem;
-  padding-bottom: 3rem;
+  gap: 2rem;
+  padding-bottom: 2.5rem;
 }
 
 .footer__logo {
-  height: 140px;
+  height: clamp(100px, 22vw, 140px);
+  max-width: 100%;
   width: auto;
   object-fit: contain;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 
 .footer__brand h3,
@@ -38,7 +40,7 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--accent);
-  margin-bottom: 1rem;
+  margin-bottom: 0.875rem;
 }
 
 .footer__links ul {
@@ -51,6 +53,9 @@
   font-size: 0.85rem;
   color: var(--text-secondary);
   transition: color 0.3s ease;
+  display: inline-block;
+  padding: 0.15rem 0;
+  min-height: 32px;
 }
 
 .footer__links a:hover {
@@ -62,6 +67,7 @@
   color: var(--text-secondary);
   margin-bottom: 0.5rem;
   line-height: 1.5;
+  word-break: break-word;
 }
 
 .footer__contact a:hover {
@@ -70,12 +76,13 @@
 
 .footer__social-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.75rem;
 }
 
 .footer__social-links a {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,23 +103,55 @@
 
 .footer__bottom {
   border-top: 1px solid var(--border);
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
   text-align: center;
 }
 
 .footer__bottom p {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
+  line-height: 1.5;
+  padding: 0 0.5rem;
 }
 
 @media (max-width: 968px) {
   .footer__grid {
     grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer__brand {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .footer__logo {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer__desc {
+    max-width: none;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 480px) {
+  .footer {
+    padding-top: 2.5rem;
+  }
+
   .footer__grid {
     grid-template-columns: 1fr;
+    gap: 1.75rem;
+    text-align: center;
+  }
+
+  .footer__links ul {
+    align-items: center;
+  }
+
+  .footer__social-links {
+    justify-content: center;
   }
 }

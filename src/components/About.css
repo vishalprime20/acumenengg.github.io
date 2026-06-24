@@ -92,21 +92,42 @@
 @media (max-width: 768px) {
   .about__grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .about__block {
+    padding: 1.25rem;
   }
 
   .about__visual {
-    height: 300px;
+    height: 260px;
     position: static;
     order: -1;
   }
 
+  .about__values-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
   .about__values-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.875rem;
+  }
+
+  .value-card {
+    padding: 1.25rem;
   }
 }
 
 @media (max-width: 480px) {
   .about__values-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about__intro p {
+    padding: 0;
+    font-size: 0.9rem;
   }
 }

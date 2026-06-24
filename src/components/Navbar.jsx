@@ -22,13 +22,13 @@ export default function Navbar() {
   const handleNavClick = () => setMenuOpen(false);
 
   return (
-    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
+    <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''} ${menuOpen ? 'navbar--open' : ''}`}>
       <div className="container navbar__inner">
         <a href="#home" className="navbar__brand" onClick={handleNavClick}>
           <BrandLogo variant="horizontal" className="navbar__logo" />
         </a>
 
-        <nav className={`navbar__nav ${menuOpen ? 'navbar__nav--open' : ''}`}>
+        <nav className={`navbar__nav ${menuOpen ? 'navbar__nav--open' : ''}`} aria-hidden={!menuOpen}>
           <ul className="navbar__links">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -38,6 +38,9 @@ export default function Navbar() {
               </li>
             ))}
           </ul>
+          <a href="#contact" className="btn btn-primary navbar__mobile-cta" onClick={handleNavClick}>
+            Get Quote
+          </a>
         </nav>
 
         <div className="navbar__actions">
@@ -54,7 +57,8 @@ export default function Navbar() {
           <button
             className={`navbar__hamburger ${menuOpen ? 'navbar__hamburger--open' : ''}`}
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
           >
             <span />
             <span />

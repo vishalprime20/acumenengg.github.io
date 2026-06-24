@@ -4,8 +4,21 @@ import './Services.css';
 
 export default function Services() {
   const [activeCategory, setActiveCategory] = useState('steel');
+  const [expandedService, setExpandedService] = useState(null);
 
   const category = serviceCategories.find((c) => c.id === activeCategory);
+
+  const handleCategoryChange = (id) => {
+    setActiveCategory(id);
+    setExpandedService(null);
+  };
+
+  const toggleService = (name) => {
+    const isTouch =
+      window.matchMedia('(hover: none)').matches || window.innerWidth <= 768;
+    if (!isTouch) return;
+    setExpandedService((prev) => (prev === name ? null : name));
+  };
 
   return (
     <section id="services" className="section services">
@@ -24,11 +37,12 @@ export default function Services() {
             <button
               key={cat.id}
               className={`services__tab ${activeCategory === cat.id ? 'services__tab--active' : ''}`}
-              onClick={() => setActiveCategory(cat.id)}
+              onClick={() => handleCategoryChange(cat.id)}
               style={{ '--tab-color': cat.color }}
             >
               <span className="services__tab-icon">{cat.icon}</span>
               <span className="services__tab-label">{cat.title}</span>
+              <span className="services__tab-short">{cat.title.split(/[/—]/)[0].trim()}</span>
             </button>
           ))}
         </div>
@@ -41,18 +55,27 @@ export default function Services() {
             >
               {category.icon}
             </div>
-            <div>
+            <div className="services__panel-text">
               <h3>{category.title}</h3>
-              <p>Hover over each service to learn more</p>
+              <p className="services__hint services__hint--desktop">Hover over each service to learn more</p>
+              <p className="services__hint services__hint--mobile">Tap each service to learn more</p>
             </div>
           </div>
 
           <div className="services__grid stagger-children">
             {category.services.map((service) => (
-              <div key={service.name} className="service-item glass-card">
+              <div
+                key={service.name}
+                className={`service-item glass-card ${expandedService === service.name ? 'service-item--expanded' : ''}`}
+                onClick={() => toggleService(service.name)}
+                onKeyDown={(e) => e.key === 'Enter' && toggleService(service.name)}
+                role="button"
+                tabIndex={0}
+              >
                 <div className="service-item__front">
                   <span className="service-item__dot" style={{ background: category.color }} />
                   <h4>{service.name}</h4>
+                  <span className="service-item__chevron" aria-hidden="true">›</span>
                 </div>
                 <div className="service-item__back">
                   <p>{service.description}</p>
@@ -60,21 +83,6 @@ export default function Services() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="services__illustrations fade-up">
-          {serviceCategories.map((cat) => (
-            <div
-              key={cat.id}
-              className={`services__illus-card glass-card ${activeCategory === cat.id ? 'services__illus-card--active' : ''}`}
-              onClick={() => setActiveCategory(cat.id)}
-            >
-              <div className="services__illus-icon" style={{ color: cat.color }}>
-                {cat.icon}
-              </div>
-              <span>{cat.title.split('/')[0].trim()}</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>

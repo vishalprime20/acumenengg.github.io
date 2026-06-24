@@ -156,12 +156,14 @@ function SceneContent({ variant = 'building' }) {
 }
 
 export default function Scene3D({ variant = 'building', className = '', autoRotate = true }) {
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
   return (
     <div className={`scene-3d ${className}`}>
       <Canvas
-        camera={{ position: [4, 3, 5], fov: 45 }}
-        dpr={[1, 1.5]}
-        gl={{ antialias: true, alpha: true }}
+        camera={{ position: [4, 3, 5], fov: isMobile ? 50 : 45 }}
+        dpr={isMobile ? [1, 1.25] : [1, 1.5]}
+        gl={{ antialias: !isMobile, alpha: true, powerPreference: isMobile ? 'low-power' : 'high-performance' }}
         style={{ background: 'transparent' }}
       >
         <Suspense fallback={null}>

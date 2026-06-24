@@ -47,7 +47,9 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: calc(72px + env(safe-area-inset-top, 0px));
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -57,6 +59,8 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   transition: background 0.4s ease, color 0.4s ease;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 
 #root {
@@ -88,7 +92,7 @@ ul {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 clamp(1rem, 4vw, 1.5rem);
 }
 
 .section {
@@ -195,11 +199,60 @@ ul {
 
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 0;
+    padding: 3.5rem 0;
   }
 
   .section-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    padding: 0 0.25rem;
+  }
+
+  .btn {
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .glass-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-tag {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+  }
+
+  .btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .btn-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 0 0.875rem;
   }
 }
 

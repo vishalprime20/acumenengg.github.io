@@ -38,7 +38,7 @@ export default function Hero() {
             Engineering solutions that combine innovation, accuracy and reliability.
             From BIM modeling to steel detailing — we deliver excellence at every scale.
           </p>
-          <div className="hero__actions">
+          <div className="hero__actions btn-row">
             <a href="#services" className="btn btn-primary">
               Our Services
             </a>

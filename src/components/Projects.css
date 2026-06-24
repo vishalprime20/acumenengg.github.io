@@ -5,8 +5,8 @@
 .projects__grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 3rem;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .project-card {
@@ -30,7 +30,7 @@
 .project-card__back {
   position: absolute;
   inset: 0;
-  padding: 2rem;
+  padding: 1.75rem;
   backface-visibility: hidden;
   display: flex;
   flex-direction: column;
@@ -54,10 +54,11 @@
 }
 
 .project-card__front h3 {
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
   flex: 1;
+  line-height: 1.3;
 }
 
 .project-card__location {
@@ -73,10 +74,11 @@
 }
 
 .project-card__back h3 {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   margin-bottom: 0.75rem;
   color: var(--accent);
+  line-height: 1.3;
 }
 
 .project-card__scope {
@@ -105,7 +107,7 @@
 }
 
 .project-card__metric-value {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -117,33 +119,56 @@
 @media (max-width: 768px) {
   .projects__grid {
     grid-template-columns: 1fr;
-  }
-
-  .project-card {
-    height: 260px;
+    gap: 1rem;
   }
 }
 
-@media (hover: none) {
-  .project-card__inner {
-    transform: none !important;
-  }
-
-  .project-card__back {
-    position: relative;
-    transform: none;
-    margin-top: 0;
-  }
-
+@media (hover: none), (max-width: 768px) {
   .project-card {
     height: auto;
+    perspective: none;
+  }
+
+  .project-card__inner {
+    transform: none !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project-card__front,
+  .project-card__back {
+    position: relative;
+    inset: auto;
+    transform: none;
+    backface-visibility: visible;
   }
 
   .project-card__front {
-    position: relative;
+    border-bottom: none;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .project-card__back {
+    border-top: 1px solid var(--border);
+    border-radius: 0 0 16px 16px;
+    margin-top: -1px;
+    padding-top: 1.25rem;
   }
 
   .project-card__hover-hint {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-card__front,
+  .project-card__back {
+    padding: 1.25rem;
+  }
+
+  .project-card__metrics {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
   }
 }
