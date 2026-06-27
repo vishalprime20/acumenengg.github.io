@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { contactInfo, socialLinks, formEndpoint } from '../data/content';
+import { contactInfo, formEndpoint } from '../data/content';
 import LazyScene3D from './LazyScene3D';
 import './Contact.css';
 
@@ -96,21 +96,6 @@ export default function Contact() {
                   <p>{contactInfo.hours}</p>
                 </div>
               </div>
-            </div>
-
-            <div className="contact__social fade-up">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact__social-link"
-                  aria-label={link.name}
-                >
-                  {link.icon}
-                </a>
-              ))}
             </div>
 
             <div className="contact__map fade-up">

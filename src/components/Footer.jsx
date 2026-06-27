@@ -1,4 +1,4 @@
-import { navLinks, socialLinks, contactInfo } from '../data/content';
+import { navLinks, contactInfo } from '../data/content';
 import BrandLogo from './BrandLogo';
 import './Footer.css';
 
@@ -39,23 +39,6 @@ export default function Footer() {
                 <a href={`mailto:${email}`}>{email}</a>
               </p>
             ))}
-          </div>
-
-          <div className="footer__social">
-            <h4>Follow Us</h4>
-            <div className="footer__social-links">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.name}
-                >
-                  {link.icon}
-                </a>
-              ))}
-            </div>
           </div>
         </div>
 

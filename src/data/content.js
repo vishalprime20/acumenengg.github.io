@@ -253,7 +253,7 @@ export const contactInfo = {
     'kp.acumenengineering@gmail.com',
     'projects.acumenengineering@gmail.com',
   ],
-  website: 'www.acumenengservices.com',
+  website: 'acumenengg.github.io',
   hours: 'Mon - Sat (9:00 AM - 6:00 PM)',
   whatsapp: '919876543210',
   mapEmbed:
