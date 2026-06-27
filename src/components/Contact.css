@@ -119,8 +119,7 @@
 .contact__form-embed {
   width: 100%;
   flex: 1;
-  min-height: 440px;
-  overflow: hidden;
+  overflow: visible;
   border-radius: 8px;
   background: var(--bg-glass);
 }
@@ -128,8 +127,9 @@
 .contact__form-embed iframe {
   display: block;
   width: 100%;
-  min-height: 440px;
+  height: 1350px;
   border: 0;
+  overflow: hidden;
 }
 
 @media (min-width: 969px) {
@@ -144,9 +144,14 @@
     min-height: 100%;
   }
 
-  .contact__form-embed,
   .contact__form-embed iframe {
-    min-height: 680px;
+    height: 1350px;
+  }
+}
+
+@media (max-width: 968px) {
+  .contact__form-embed iframe {
+    height: 1280px;
   }
 }
 
