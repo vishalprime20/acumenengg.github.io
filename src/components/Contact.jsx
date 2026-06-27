@@ -1,5 +1,4 @@
 import { contactInfo } from '../data/content';
-import LazyScene3D from './LazyScene3D';
 import './Contact.css';
 
 export default function Contact() {
@@ -77,17 +76,13 @@ export default function Contact() {
           </div>
 
           <div className="contact__form-area slide-right">
-            <div className="contact__visual">
-              <LazyScene3D variant="office" />
-            </div>
             <div className="contact__form glass-card">
-              <h3>Send Us a Message</h3>
               <div className="contact__form-embed">
                 <iframe
                   title="Acumen Engineering Contact Form"
                   src={contactInfo.formEmbed}
                   width="640"
-                  height="440"
+                  height="680"
                   frameBorder="0"
                   marginHeight="0"
                   marginWidth="0"
