@@ -418,6 +418,8 @@ export const socialLinks = [
 ];
 
 
+export const siteUrl = 'https://acumenengg.github.io/';
+
 export const companyDescription =
   'A globally trusted provider of Civil Engineering, Rebar, Precast, Structural Detailing, BIM, and CAD Drafting Services, delivering precision-driven solutions for projects worldwide.';
 

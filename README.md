@@ -2,7 +2,7 @@
 test
 Modern, 3D-animated static website for **Acumen Engineering Services** — built with React, Vite, Three.js, and GSAP.
 
-**Live URL:** [https://acumenengineeringservices.github.io/home/](https://acumenengineeringservices.github.io/home/)
+**Live URL:** [https://acumenengg.github.io/](https://acumenengg.github.io/)
 
 ## Features
 

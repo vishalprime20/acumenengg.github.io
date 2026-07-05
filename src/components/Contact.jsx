@@ -1,4 +1,4 @@
-import { contactInfo } from '../data/content';
+import { contactInfo, siteUrl } from '../data/content';
 import './Contact.css';
 
 export default function Contact() {
@@ -53,7 +53,7 @@ export default function Contact() {
                 <span className="contact__detail-icon">🌐</span>
                 <div>
                   <h4>Website</h4>
-                  <a href={`https://${contactInfo.website}`} target="_blank" rel="noopener noreferrer">
+                  <a href={siteUrl} target="_blank" rel="noopener noreferrer">
                     {contactInfo.website}
                   </a>
                 </div>
