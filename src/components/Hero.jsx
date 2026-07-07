@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import LazyScene3D from './LazyScene3D';
+import HeroVisualVideo from './HeroVisualVideo';
 import BrandLogo from './BrandLogo';
 import { stats } from '../data/content';
 import StatCounter from './StatCounter';
@@ -15,6 +15,7 @@ export default function Hero() {
   return (
     <section id="home" className="hero" ref={heroRef}>
       <div className="hero__bg" />
+
       <div className="container hero__grid">
         <div className="hero__content">
           <div className="hero__brand-logo">
@@ -40,8 +41,9 @@ export default function Hero() {
             </a>
           </div>
         </div>
+
         <div className="hero__visual">
-          <LazyScene3D variant="building" />
+          <HeroVisualVideo />
         </div>
       </div>
 
